@@ -6,6 +6,7 @@ on:
     branches:
       - main
 
+
 env:
   IMAGE_REPO_NAME: my-ecr
   IMAGE_TAG: latest
