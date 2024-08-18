@@ -1,11 +1,9 @@
-name: backend-continuous-deployment
+name: build-docker-image
 
 on: 
-  workflow_dispatch:
   pull_request:
     branches:
       - main
-
 
 env:
   IMAGE_REPO_NAME: my-ecr
@@ -20,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure AWS credential
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
