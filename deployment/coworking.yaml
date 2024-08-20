@@ -3,8 +3,9 @@ kind: Service
 metadata:
   name: coworking
 spec:
+  type: LoadBalancer
   selector:
-    app.kubernetes.io/name: coworking
+    service: coworking
   ports:
   - name: "5153"
     protocol: TCP
@@ -29,7 +30,7 @@ spec:
     spec:
       containers:
       - name: coworking
-        image: 751020218970.dkr.ecr.us-east-1.amazonaws.com/my-ecr:lastest
+        image: 751020218970.dkr.ecr.us-east-1.amazonaws.com/my-ecr:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
